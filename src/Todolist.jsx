@@ -1,6 +1,6 @@
 import React from "react";
 function Todolist(){
-    var [todos,setTodos ] = React.useState(['testing videos','clean car'])
+    var [ todos,setTodos ] = React.useState(['testing videos','clean car','puppeter','cypres','jest'])
     var [newtask,setNewTask] = React.useState('');
     var myref = React.useRef()
     function addTask(){
@@ -14,6 +14,11 @@ function Todolist(){
     React.useEffect(()=>{
         myref.current.focus();
     },[])
+    function del(ind){
+        var temp = [...todos];
+        temp.splice(ind,1)
+        setTodos([...temp])
+    }
     return(
         <div className="betterview">
             <h1 className="bluecol">Todolist</h1>
@@ -21,7 +26,10 @@ function Todolist(){
             <button onClick={addTask}>Add Task</button>
             {
                 todos.map((t,i)=>{
-                    return(<li>{t}</li>)
+                    return(<li>
+                        {t}
+                        <button onClick={()=>{del(i)}}>Delete</button>
+                    </li>)
                 })
             }
         </div>

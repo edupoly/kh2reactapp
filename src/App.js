@@ -5,6 +5,7 @@ import Todolist from './Todolist';
 import HCounter from './HCounter';
 import Comp1 from './Comp1';
 import MyContext from './MyContext';
+import EventHandling from './EventHandling';
 const details = {
   pname:'mobile',
   price:21304,
@@ -16,6 +17,7 @@ function App() {
   return (
     <MyContext.Provider value={details}>
       <div className="betterview">
+        <EventHandling></EventHandling>
         <h1 className='bluecol'>Welcome to React Application development</h1>
         <h1>{firstname}</h1>
         <Comp1 fn={firstname}></Comp1>
